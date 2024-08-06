@@ -16,7 +16,7 @@ public class Utility {
             try {
                 JSONArray allProvinces = new JSONArray(response);
                 for (int i = 0; i < allProvinces.length(); i++) {
-                    JSONObject provinceObject = new getJSONObject(i);
+                    JSONObject provinceObject = allProvinces.getJSONObject(i);
                     Province province = new Province();
                     province.setProvinceName(provinceObject.getString("name"));
                     province.setProvinceCode(provinceObject.getInt("id"));
@@ -31,13 +31,13 @@ public class Utility {
         return false;
     }
 
-    public static boolean handCityResponse(String response,int provinceId){
-        if (!TextUtils.isEmpty(response)){
+    public static boolean handCityResponse(String response, int provinceId) {
+        if (!TextUtils.isEmpty(response)) {
             try {
-                JSONArray allCities=new JSONArray(response);
+                JSONArray allCities = new JSONArray(response);
                 for (int i = 0; i < allCities.length(); i++) {
-                    JSONObject cityObject=allCities.getJSONObject(i);
-                    City city=new City();
+                    JSONObject cityObject = allCities.getJSONObject(i);
+                    City city = new City();
                     city.setCityName(cityObject.getString("name"));
                     city.setCityId(cityObject.getInt("id"));
                     city.setProvinceId("provinceId");
@@ -50,29 +50,24 @@ public class Utility {
         }
         return false;
     }
-    public boolean handleCountyResponse(String response,int cityId){
-        if (!TextUtils.isEmpty(response)){
+
+    public boolean handleCountyResponse(String response, int cityId) {
+        if (!TextUtils.isEmpty(response)) {
             try {
-                JSONArray allCounties=new JSONArray(response);
-                for (int i = 0; i <allCounties.length() ; i++) {
-                JSONObject countyObject=allCounties.getJSONObject(i);
-                    County county=new County();
+                JSONArray allCounties = new JSONArray(response);
+                for (int i = 0; i < allCounties.length(); i++) {
+                    JSONObject countyObject = allCounties.getJSONObject(i);
+                    County county = new County();
                     county.setCountyName(countyObject.getString("name"));
                     county.setWeatherId(countyObject.getString("weather_id"));
                     county.setCityId(cityId);
                     county.save();
                 }
-                        return true;
+                return true;
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
         }
         return false;
-    }
-
-
-    private static class getJSONObject extends JSONObject {
-        public getJSONObject(int i) {
-        }
     }
 }
