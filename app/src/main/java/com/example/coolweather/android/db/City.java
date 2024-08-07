@@ -3,40 +3,51 @@ package com.example.coolweather.android.db;
 import org.litepal.crud.LitePalSupport;
 
 public class City extends LitePalSupport {
-   private int id;
-   private String cityName;
-   private String provinceId;
-   private int cityId;
+    private int id;
+    private String cityName;
 
-   public int getId() {
-      return id;
-   }
 
-   public void setId(int id) {
-      this.id = id;
-   }
+    private int cityCode;
+    private String provinceId;
+    private int cityId;
 
-   public String getCityName() {
-      return cityName;
-   }
+    public int getId() {
+        return id;
+    }
 
-   public void setCityName(String cityName) {
-      this.cityName = cityName;
-   }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-   public String getProvinceId() {
-      return provinceId;
-   }
+    public String getCityName() {
+        return cityName;
+    }
 
-   public void setProvinceId(String provinceId) {
-      this.provinceId = provinceId;
-   }
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
 
-   public int getCityId() {
-      return cityId;
-   }
+    public String getProvinceId() {
+        return provinceId;
+    }
 
-   public void setCityId(int cityId) {
-      this.cityId = cityId;
-   }
+    public void setProvinceId(String provinceId) {
+        this.provinceId = provinceId;
+    }
+
+    public int getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
+    }
+
+    public int getCityCode() {
+        return cityCode;
+    }
+
+    public void setCityCode(int cityCode) {
+        this.cityCode = cityCode;
+    }
 }

@@ -31,7 +31,7 @@ public class Utility {
         return false;
     }
 
-    public static boolean handCityResponse(String response, int provinceId) {
+    public static boolean handleCityResponse(String response, int provinceId) {
         if (!TextUtils.isEmpty(response)) {
             try {
                 JSONArray allCities = new JSONArray(response);
@@ -51,7 +51,7 @@ public class Utility {
         return false;
     }
 
-    public boolean handleCountyResponse(String response, int cityId) {
+    public static boolean handleCountyResponse(String response, int cityId) {
         if (!TextUtils.isEmpty(response)) {
             try {
                 JSONArray allCounties = new JSONArray(response);
